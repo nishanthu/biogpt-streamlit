@@ -2,10 +2,6 @@ import streamlit as st
 import openai
 from huggingface_hub.inference_api import InferenceApi
 
-inference = InferenceApi(repo_id="microsoft/BioGPT-Large", token="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")
-inference = InferenceApi(repo_id="microsoft/BioGPT-Large-PubMedQA", token="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")
-result = inference(inputs="COVID-19 is ")
-print(result[0]['generated_text'])
 
 
 result = inference(inputs="What are the top 3 takeaways about COVID-19?")
@@ -22,8 +18,9 @@ def main():
 
     if submit_button:
         st.write("Question: " + input_text)
-        output_text = input_text.upper()
-        st.write("Answer: " + output_text)
+        inference = InferenceApi(repo_id="microsoft/BioGPT-Large-PubMedQA", token="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")
+        result = inference(inputs="COVID-19 is ")
+        st.write("Answer: " + result[0]['generated_text'])
 
 if __name__ == "__main__":
     main()
