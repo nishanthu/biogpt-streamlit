@@ -12,25 +12,17 @@ result = inference(inputs="What are the top 3 takeaways about COVID-19?")
 print(result[0]['generated_text'])
 
 
-# Set up the page layout
-st.title("BioGPT App")
 
-# Create a text box for input
-input_text = st.text_input("Enter your text here:")
+def main():
+    st.title("BioGPT App")
 
-# Create a submit button and a reset button
-col1, col2 = st.beta_columns(2)
-if col1.button("Submit"):
-    # Process the input text
-    output_text = input_text.upper()
+    with st.form(key="qa_input_form", clear_on_submit=True):
+        input_text = st.text_input("Enter your question here:")
+        submit_button = st.form_submit_button("Submit")
 
-    # Display the output text
-    st.write("Output text:")
-    st.write(output_text)
+    if submit_button:
+        output_text = input_text.upper()
+        st.write(output_text)
 
-if col2.button("Reset"):
-    # Clear the input and output
-    input_text = ""
-    output_text = ""
-    #st.write("Input and output cleared.")
-
+if __name__ == "__main__":
+    main()
