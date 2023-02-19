@@ -19,11 +19,23 @@ st.write("Enter some text and click the button to see the output.")
 # Create a text box for input
 input_text = st.text_input("Enter your text here:")
 
-# Create a submit button
-if st.button("Submit"):
+# Create a submit button and a reset button
+col1, col2 = st.beta_columns(2)
+if col1.button("Submit"):
     # Process the input text
     output_text = input_text.upper()
 
     # Display the output text
+    st.write("Output text:")
+    st.write(output_text)
+
+if col2.button("Reset"):
+    # Clear the input and output
+    input_text = ""
+    output_text = ""
+    st.write("Input and output cleared.")
+
+# Show the output text
+if output_text:
     st.write("Output text:")
     st.write(output_text)
