@@ -13,8 +13,7 @@ print(result[0]['generated_text'])
 
 
 # Set up the page layout
-st.title("Text Input Demo")
-st.write("Enter some text and click the button to see the output.")
+st.title("BioGPT App")
 
 # Create a text box for input
 input_text = st.text_input("Enter your text here:")
@@ -33,11 +32,5 @@ if col2.button("Reset"):
     # Clear the input and output
     input_text = ""
     output_text = ""
-    st.write("Input and output cleared.")
+    #st.write("Input and output cleared.")
 
-'''
-# Show the output text
-if output_text:
-    st.write("Output text:")
-    st.write(output_text)
-'''
