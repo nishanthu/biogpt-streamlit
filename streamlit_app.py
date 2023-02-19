@@ -21,8 +21,9 @@ def main():
         submit_button = st.form_submit_button("Submit")
 
     if submit_button:
+        st.write("Question: " + input_text)
         output_text = input_text.upper()
-        st.write(output_text)
+        st.write("Answer: " + output_text)
 
 if __name__ == "__main__":
     main()
