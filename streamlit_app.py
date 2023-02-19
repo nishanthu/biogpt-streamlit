@@ -35,7 +35,9 @@ if col2.button("Reset"):
     output_text = ""
     st.write("Input and output cleared.")
 
+'''
 # Show the output text
 if output_text:
     st.write("Output text:")
     st.write(output_text)
+'''
